@@ -76,7 +76,7 @@ def split_docs(documents, separators=[","]):
             split_documents.append(DocumentCore(page_content=part.strip(), metadata=document.metadata))
     return split_documents
 
-valid_columns_directory = 'NRCChatDB/NRCResources/validColumns'
+valid_columns_directory = 'tools/NRCResources/validColumns'
 valid_columns_documents = load_docs(valid_columns_directory)
 valid_columns_docs = split_docs(valid_columns_documents)
 valid_columns_vector_db = ChromaVectorStore.from_documents(valid_columns_docs, OpenAIEmbeddings())
@@ -105,7 +105,7 @@ def checkColumns(columns: str) -> str:
     print(str(result))
     return str(result)
 
-map_columns_directory = 'NRCChatDB/NRCResources/columnmappings'
+map_columns_directory = 'tools/NRCResources/columnmappings'
 
 map_columns_documents = load_docs(map_columns_directory)
 map_columns_docs = split_docs(map_columns_documents)
@@ -137,7 +137,7 @@ def alternateColumn(column: str) -> str:
     return result
 
 ### Synonyms ###
-value_synonyms_directory = 'NRCChatDB/NRCResources/valueSynonymMappings'
+value_synonyms_directory = 'tools/NRCResources/valueSynonymMappings'
 
 value_synonyms_documents = load_docs(value_synonyms_directory)
 value_synonyms_docs = split_docs(value_synonyms_documents)
